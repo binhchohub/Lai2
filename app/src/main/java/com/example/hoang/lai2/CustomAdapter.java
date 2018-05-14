@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -30,13 +31,20 @@ public class CustomAdapter extends ArrayAdapter<Contact> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.row_listview, parent, false);
             viewHolder = new ViewHolder();
             viewHolder.tvName = (TextView) convertView.findViewById(R.id.tvName);
             viewHolder.tvNumberPhone = (TextView) convertView.findViewById(R.id.tvPhoneNumber);
             viewHolder.tvAvatar = (TextView) convertView.findViewById(R.id.tvAvatar);
+            viewHolder.butD = (Button) convertView.findViewById(R.id.butD);
+            viewHolder.butD.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    viewHolder.butD.setVisibility(View.INVISIBLE);
+                }
+            });
 
             convertView.setTag(viewHolder);
         } else {
@@ -52,6 +60,6 @@ public class CustomAdapter extends ArrayAdapter<Contact> {
 
     public class ViewHolder {
         TextView tvName, tvNumberPhone, tvAvatar;
-
+        Button butD;
     }
 }

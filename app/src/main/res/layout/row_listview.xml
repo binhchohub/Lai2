@@ -51,6 +51,11 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </LinearLayout>
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:id="@+id/butD"
+ />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
